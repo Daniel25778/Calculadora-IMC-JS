@@ -4,13 +4,36 @@ const peso = document.getElementById("peso")
 const calcular = document.getElementById("calcular")
 const resultado = document.getElementById("resultado")
 
-function calculo() {
-    if (nome.value !== "" && altura !== "" && peso !== "") {
-        resultado.textContent = parseFloat(peso.value) / (parseFloat(altura.value ** 2))
+
+function calcularImc() {
+    if (nome.value.trim() !== "" && altura !== "" && peso !== "") {
+        resultado.value = (parseFloat(peso.value) / (parseFloat(altura.value ** 2))).toFixed(1)
+        status(resultado);
+        resultado.innerHTML = status(resultado)
 
     } else {
         alert("Preencha todos os campos!!")
     }
 }
 
-calcular.addEventListener("click", calculo)
+calcular.addEventListener("click", calcularImc)
+
+function status(resultado) {
+    let condicao = ""
+    if (resultado.value <= 18.5) {
+        condicao = nome.value + " seu IMC é " + resultado.value + " e você está Abaixo do peso,CUIDADO!"
+
+    } else if (resultado.value > 18.5 && resultado.value < 24.9) {
+        condicao = nome.value + " seu IMC é " + resultado.value + " e você está com o peso ideal,PARABÉNS!"
+    } else if (resultado.value > 25.0 && resultado.value < 29.9) {
+        condicao = nome.value + " seu IMC é " + resultado.value + " e você está acima do peso,CUIDADO!"
+    } else if (resultado.value >= 30.0 && resultado.value < 34.9) {
+        condicao = nome.value + " seu IMC é " + resultado.value + " e você está com obesidade grau I,CUIDADO!"
+    } else if (resultado.value >= 35.0 && resultado.value <= 39.9) {
+        condicao = nome.value + " seu IMC é " + resultado.value + " e você está com obesidade grau II,CUIDADO!"
+    } else {
+        condicao = nome.value + " seu IMC é " + resultado.value + " e você está com obesidade grau III,CUIDADO!"
+    }
+    return condicao;
+
+}

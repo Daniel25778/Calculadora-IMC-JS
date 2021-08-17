@@ -125,6 +125,18 @@ section {
     padding: 10px;
 }
 
+.pesoIdeal {
+    background-color: green;
+}
+
+.abaixoDoPeso {
+    background-color: green;
+}
+
+.Obesidade {
+    background-color: green;
+}
+
 footer {
     text-align: center;
     height: 40px;
