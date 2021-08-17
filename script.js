@@ -4,9 +4,13 @@ const peso = document.getElementById("peso")
 const calcular = document.getElementById("calcular")
 const resultado = document.getElementById("resultado")
 
+function camposValidos() {
+    return (nome.value.trim() !== "" && altura !== "" && peso !== "")
+}
+
 
 function calcularImc() {
-    if (nome.value.trim() !== "" && altura !== "" && peso !== "") {
+    if (camposValidos()) {
         resultado.value = (parseFloat(peso.value) / (parseFloat(altura.value ** 2))).toFixed(1)
         status(resultado);
         resultado.innerHTML = status(resultado)
