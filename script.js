@@ -12,12 +12,16 @@ function camposValidos() {
 function calcularImc() {
     if (camposValidos()) {
         resultado.value = (parseFloat(peso.value) / (parseFloat(altura.value ** 2))).toFixed(1)
-        status(resultado);
-        resultado.innerHTML = status(resultado)
 
     } else {
         alert("Preencha todos os campos!!")
     }
+}
+
+function exibirImc() {
+    status(resultado);
+    resultado.innerHTML = status(resultado)
+
 }
 
 calcular.addEventListener("click", calcularImc)
